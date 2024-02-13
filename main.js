@@ -2,10 +2,13 @@ var gBallSize = 100
 
 function onBallClick(ball) {
     const randSize = getRandomIntInclusive(20, 60)
+    ball.style.backgroundColor = getRandomColor()
+    
     if (ball.style.width >= '400px') {
         ball.style.width = 100 + 'px'
         ball.style.height = 100 + 'px'
         gBallSize = 100
+        
         ball.innerText = gBallSize
         return
     }
