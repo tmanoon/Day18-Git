@@ -11,20 +11,20 @@ h1 {
     display: grid;
     width: 90vw;
     height: 75vh;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas: "ball1 ball2 ball3 ball4";
+    grid-template-areas: 
+    "ball1 ball2 ball3"
+     "ball4 ball5 ball6";
     align-items: center;
     margin-inline: auto;
     margin-block-start: 30px;
     gap: 70px;
 }
 
-.ball {
-    grid-area: ball1;
+.ball-item {
     width: 100px;
     height: 100px;
-    background-color: rgb(253, 245, 234);
     border-radius: 50%;
     margin-inline: auto;
     display: flex;
@@ -33,47 +33,30 @@ h1 {
     font-size: 22px;
     font-weight: bold;
     transition: 1s;
+}
+
+.ball {
+    grid-area: ball1;
+    background-color: rgb(253, 245, 234);
 }
 
 .ball2 {
     grid-area: ball2;
-    width: 100px;
-    height: 100px;
     background-color: rgb(143, 200, 0);
-    border-radius: 50%;
-    margin-inline: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    font-weight: bold;
-    transition: 1s;
 }   
 
 .ball3 {
     grid-area: ball3;
-    width: 100px;
-    height: 100px;
     background-color: rgb(255, 235, 52);
-    border-radius: 50%;
-    margin-inline: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    font-weight: bold;
 }
 
 .ball4 {
     grid-area: ball4;
-    width: 100px;
-    height: 100px;
     background-color: rgb(136, 123, 255);
-    border-radius: 50%;
-    margin-inline: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    font-weight: bold;
 }
+
+.ball5 {
+    grid-area: ball5;
+    background-color: rgb(207, 42, 160);
+}
+
