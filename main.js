@@ -1,6 +1,9 @@
 'use strict'
 
-var gBallSize = 100
+var gDefaultBallSize = 100
+var gBall1Size = 100
+var gBall2Size = 100
+var currBall
 var gDiameterBall1 = 400
 var gDiameterBall2 = 350
 const ball1 = document.querySelector('.ball')
@@ -12,18 +15,31 @@ var gIdOfSecondsInterval
 function onBallClick(ball, maxDiameter) {
     const randSize = getRandomIntInclusive(20, 60)
     ball.style.backgroundColor = getRandomColor()
-
-    if (gBallSize >= maxDiameter) {
-        ball.style.width = 100 + 'px'
-        ball.style.height = 100 + 'px'
-        gBallSize = 100
-        ball.innerText = gBallSize
-        return
+    if (ball.classList.contains('ball')) {
+        gBall1Size += randSize
+        if (gBall1Size >= maxDiameter) {
+            gBall1Size = gDefaultBallSize
+            ball.style.width = gBall1Size + 'px'
+            ball.style.height = gBall1Size + 'px'
+            ball.innerText = gDefaultBallSize
+            return
+        }
+        ball.style.width = gBall1Size + 'px'
+        ball.style.height = gBall1Size + 'px'
+        ball.innerText = gBall1Size
+    } else {
+        gBall2Size += randSize
+            if (gBall2Size >= maxDiameter) {
+                gBall2Size = gDefaultBallSize
+                ball.style.width = gBall2Size + 'px'
+                ball.style.height = gBall2Size + 'px'
+                ball.innerText = gDefaultBallSize
+                return
+            }
+            ball.style.width = gBall2Size + 'px'
+            ball.style.height = gBall2Size + 'px'
+            ball.innerText = gBall2Size
     }
-    gBallSize += randSize
-    ball.style.width = gBallSize + 'px'
-    ball.style.height = gBallSize + 'px'
-    ball.innerText = gBallSize
 }
 
 function changeTwoBalls() {
