@@ -22,12 +22,20 @@ function onBallClick(ball, maxDiameter) {
 }
 
 function changeTwoBalls() {
-    const currBall1Size = ball1.style.width
-    const currBall2Size = ball2.style.width
-    ball1.style.backgroundColor = 'rgb(143, 200, 0)'
-    ball2.style.backgroundColor = 'rgb(253, 245, 234)'
+    const currBall1Size = window.getComputedStyle(ball1).width
+    const currBall2Size = window.getComputedStyle(ball2).width
+    const currBall1Color = window.getComputedStyle(ball1).backgroundColor
+    const currBall2Color = window.getComputedStyle(ball2).backgroundColor
+    const ball1InnerT = ball1.innerText
+    const ball2InnerT = ball2.innerText
+    ball1.style.backgroundColor = currBall2Color
+    ball2.style.backgroundColor = currBall1Color
     ball1.style.width = currBall2Size
+    ball1.style.height = currBall2Size
     ball2.style.width = currBall1Size
+    ball2.style.height = currBall1Size
+    ball2.innerText = ball1InnerT
+    ball1.innerText = ball2InnerT
 }
 
 function reduceDiameters() {
@@ -71,4 +79,8 @@ function returnToOriginalGame() {
     body.style.backgroundColor = 'black'
     ball1.style.backgroundColor = 'rgb(253, 245, 234)'
     ball2.style.backgroundColor = 'rgb(143, 200, 0)'
+    ball1.style.width = gBallSize + 'px'
+    ball1.style.height = gBallSize + 'px'
+    ball2.style.width = gBallSize + 'px'
+    ball2.style.height = gBallSize + 'px'
 }
