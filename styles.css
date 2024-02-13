@@ -4,9 +4,23 @@ body {
 
 h1 {
     color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.balls-container {
+    display: grid;
+    width: 900px;
+    height: 750px;
+    grid-template-rows: 750px;
+    grid-template-columns: 450px 450px;
+    grid-template-areas: "ball1 ball2";
+    align-items: center;
+    margin-inline: auto;
+    margin-block-start: 30px;
 }
 
 .ball {
+    grid-area: ball1;
     width: 100px;
     height: 100px;
     background-color: rgb(253, 245, 234);
@@ -21,6 +35,7 @@ h1 {
 }
 
 .ball2 {
+    grid-area: ball2;
     width: 100px;
     height: 100px;
     background-color: rgb(143, 200, 0);
@@ -32,4 +47,5 @@ h1 {
     font-size: 22px;
     font-weight: bold;
     transition: 1s;
+    margin-block-start: 20px;
 }   
