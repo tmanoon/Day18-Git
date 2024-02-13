@@ -10,5 +10,11 @@ h1 {
     width: 100px;
     height: 100px;
     background-color: antiquewhite;
+    border-radius: 50%;
     margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
 }
