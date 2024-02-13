@@ -48,3 +48,8 @@ function reduceDiameters() {
     ball1.onclick = onBallClick(ball1, gDiameterBall1)
     alert(`The new diameter of ball 1 is: ${gDiameterBall1} and the new diameter of ball 2 is: ${gDiameterBall2}`)
 }
+
+function randomBgColor() {
+    const body = document.querySelector('body')
+    body.style.backgroundColor = getRandomColor()
+}
