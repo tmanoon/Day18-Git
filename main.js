@@ -21,6 +21,15 @@ function onBallClick(ball, maxDiameter) {
     ball.innerText = gBallSize
 }
 
+function changeTwoBalls() {
+    const currBall1Size = ball1.style.width
+    const currBall2Size = ball2.style.width
+    ball1.style.backgroundColor = 'rgb(143, 200, 0)'
+    ball2.style.backgroundColor = 'rgb(253, 245, 234)'
+    ball1.style.width = currBall2Size
+    ball2.style.width = currBall1Size
+}
+
 function reduceDiameters() {
     gDiameterBall1 -= getRandomIntInclusive(20, 60)
     gDiameterBall2 -= getRandomIntInclusive(20, 60)
@@ -52,4 +61,14 @@ function reduceDiameters() {
 function randomBgColor() {
     const body = document.querySelector('body')
     body.style.backgroundColor = getRandomColor()
+}
+
+function returnToOriginalGame() {
+    gBallSize = 100
+    gDiameterBall1 = 400
+    gDiameterBall2 = 350
+    const body = document.querySelector('body')
+    body.style.backgroundColor = 'black'
+    ball1.style.backgroundColor = 'rgb(253, 245, 234)'
+    ball2.style.backgroundColor = 'rgb(143, 200, 0)'
 }
