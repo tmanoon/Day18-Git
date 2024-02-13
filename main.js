@@ -1,8 +1,13 @@
+'use strict'
+
 var gBallSize = 100
 var gDiameterBall1 = 400
 var gDiameterBall2 = 350
 const ball1 = document.querySelector('.ball')
 const ball2 = document.querySelector('.ball2')
+var counterOfSecs = 0
+var gIdOfHandlersInterval
+var gIdOfSecondsInterval
 
 function onBallClick(ball, maxDiameter) {
     const randSize = getRandomIntInclusive(20, 60)
@@ -83,4 +88,44 @@ function returnToOriginalGame() {
     ball1.style.height = gBallSize + 'px'
     ball2.style.width = gBallSize + 'px'
     ball2.style.height = gBallSize + 'px'
+}
+
+/* Whenthesixthballishoveredoverformorethan2seconds,anintervalwillstart
+to run the mouse-click handlers of the first four balls every 2 seconds.
+6. Theintervalwillbeclearedwhenthemousecursorleavestheballorafter10
+cycles. */
+
+function countTimeOfHover() {
+    gIdOfSecondsInterval = setInterval(function () {
+        if (counterOfSecs === 2) {
+            clearInterval(gIdOfSecondsInterval)
+            playHandlers()
+        }
+        console.log(counterOfSecs)
+        counterOfSecs++
+    }, 1000)
+}
+
+function endTimeOfHovering() {
+    counterOfSecs = 0
+    clearInterval(gIdOfSecondsInterval)
+    clearInterval(gIdOfHandlersInterval)
+}
+
+function checkForSecs() {
+    if (mouseOut - mouseEnter > 2000) playHandlers()
+    else return
+}
+
+function playHandlers() {
+    if (gIdOfHandlersInterval) clearInterval(gIdOfHandlersInterval)
+    var counter = 0
+    gIdOfHandlersInterval = setInterval(function () {
+        if (counter === 10) clearInterval(gIdOfHandlersInterval)
+        onBallClick(ball1, gDiameterBall1)
+        onBallClick(ball2, gDiameterBall2)
+        changeTwoBalls()
+        reduceDiameters()
+        counter++
+    }, 3500)
 }
