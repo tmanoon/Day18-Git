@@ -1,9 +1,16 @@
-var size = 150
+var gBallSize = 100
 
 function onBallClick(ball) {
-    if(ball.style.width === '400px') size = 100
-    ball.style.width = size + 'px'
-    ball.style.height = size + 'px'
-    ball.innerText = ball.style.width
-    size += 50
+    const randSize = getRandomIntInclusive(20, 60)
+    if (ball.style.width >= '400px') {
+        ball.style.width = 100 + 'px'
+        ball.style.height = 100 + 'px'
+        gBallSize = 100
+        ball.innerText = gBallSize
+        return
+    }
+    gBallSize += randSize
+    ball.style.width = gBallSize + 'px'
+    ball.style.height = gBallSize + 'px'
+    ball.innerText = gBallSize
 }
